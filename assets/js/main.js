@@ -1,8 +1,10 @@
-
-import { modoOscuro } from './components/modoOscuro.js'
 import { loadd } from './components/loadd.js'
+import { modoOscuro } from './components/modoOscuro.js'
+import { items } from './data/db.js'
+import { showProducts } from './components/showProducts.js'
 
 document.addEventListener( "DOMContentLoaded", () =>{
-    modoOscuro();
     loadd();
+    modoOscuro();
+    showProducts(items);
 })
