@@ -1,100 +1,327 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Academlo Store</title>
-    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
 
-    <link rel="stylesheet" href="./assets/css/style.css">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ecommerce-diego</title>
+  <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="./assets/css/style.css">
 </head>
-<body>
-    <div id="loader" class="loader">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="loader--img">
+
+<body class="tema-oscuro">
+
+  <!------------------------------------------------------------
+------------LOADER PAGE -------------------------------------
+--------------------------------------------------------------->
+  <div class="load" id="load" style="display: none;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="load__gif">
+      <title>Academlo Logo</title>
+      <g>
+        <g>
+          <path
+            d="M24.45,56.48,0,42.36V14.12L24.46,0,48.92,14.12V42.36ZM1.89,41.26l22.56,13L47,41.26v-26l-22.56-13-22.56,13Z">
+          </path>
+          <path
+            d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
+          </path>
+        </g>
+      </g>
+    </svg>
+  </div>
+
+  <!-------------------------------------------------------------
+------------ HEADER -------------------------------------
+----------------------------------------------------------------->
+  <header class="header" id="header">
+    <nav class="nav container">
+      <a href="#" class="logo--principal">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48" class="icon--principal">
           <title>Academlo Logo</title>
           <g>
-              <g>
-                  <path
-                  d="M24.45,56.48,0,42.36V14.12L24.46,0,48.92,14.12V42.36ZM1.89,41.26l22.56,13L47,41.26v-26l-22.56-13-22.56,13Z">
-                  </path>
-                  <path
-                  d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
-                  </path>
-              </g>
+            <g>
+              <path
+                d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
+              </path>
+            </g>
           </g>
-      </svg>
-    </div>
-    <header class="header" id="header">
-      <nav class="nav">
-        <a href="#" class="nav--logo">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48.92 56.48">
-              <title>Academlo Logo</title>
-              <g>
-                <g>
-                  <path
-                    d="M28.58,15.39H25.16L35.78,36H31.49L20.67,15.71,8.23,38.82H18.94l3-5.43h-3.4l-1.47,2.54h-4l2.69-5.09H25.85l4.28,8H40.67ZM17.23,28.21l3.57-6.6,3.57,6.6Z">
-                  </path>
-                </g>
-              </g>
-          </svg>
-        </a>
+        </svg> Store
+      </a>
+      <!---------NAV-------------------------->
+      <div class="nav--menu" id="nav-menu">
+        <ul class="nav--lista">
+          <li class="nav__item">
+            <a href="#home" class="nav--link link-activo">Home</a>
+          </li>
+          <li class="nav__item">
+            <a href="#productos" class="nav--link">productos</a>
+          </li>
+        </ul>
 
-        <div class="nav--menu">
-          <ul class="nav--list"> 
-            <li class="nav--item">
-              <a href="#" class="nav--link">
-                Home
-              </a>
-            </li>
-            <li class="nav--item">
-              <a href="#" class="nav--link">
-                Productos
-              </a>
-            </li>
-          </ul>
-          <div class="nav--close">
-            <i class='bx bx-x'></i>
-          </div>
-        </div>
-
-        <div class="nav--btns">
-          <i class='bx bx-moon change-theme' id="theme-button"></i>
-
-          <div class="nav--cart" id="cart-shop">
-            <i class='bx bx-shopping-bag'></i>
-            <span id="cart-counter" class="counter">0</span>
-          </div>
-
-          <div class="nav--toggle" id="nav-toggle">
-            <i class='bx bx-grid-alt'></i>
-          </div>
-        </div>
-      </nav>
-    </header>
-
-    <div class="cart--container hide" id="cart-container">
-      <div class="cart" id="cart">
-        <div class="nav--close" id="close-cart">
-          <i class='bx bx-x'></i>
+        <div class="nav--cierre" id="nav--cierre">
+          <i class="bx bx-x"></i>
         </div>
       </div>
+
+      <div class="nav--botones">
+        <i class="bx bx-moon cambio-tema bx-sun" id="theme-button"></i>
+
+        <div class="nav--store" id="cart-shop">
+          <i class="bx bx-shopping-bag"></i>
+          <span id="cart-cont" class="cont">4</span>
+        </div>
+
+        <div class="nav--alter" id="nav-toggle">
+          <i class="bx bx-grid-alt"></i>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <!--------------------------------------------------------------
+------------ CART-------------------------------------
+----------------------------------------------------------------->
+  <div class="cart" id="cart">
+    <i class="bx bx-x cart--close" id="cart-close"></i>
+
+    <h2 class="cart--titulo--centrado">My Cart</h2>
+
+    <div class="cart--contenedor">
+      <article class="cart--card">
+        <div class="cart--box">
+          <img src="./assets/images/featured1.png" alt="Hoodies" class="cart--imagen">
+        </div>
+
+        <div class="cart--details">
+          <h3 class="cart--titulo">Hoodies</h3>
+          <span class="cart--stock">Stock: 6 | <span class="cart--precio">$14.00</span></span>
+          <span class="cart--subtotal">
+            Subtotal: $28.00
+          </span>
+
+          <div class="cart--monto">
+            <div class="cart--monto-contenido">
+              <span class="cart--monto-box minus" data-id="1">
+                <i class="bx bx-minus"></i>
+              </span>
+
+              <span class="cart--monto-number">2 units</span>
+
+              <span class="cart--monto-box plus" data-id="1">
+                <i class="bx bx-plus"></i>
+              </span>
+            </div>
+
+            <i class="bx bx-trash-alt cart--monto-basurero" data-id="1"></i>
+          </div>
+        </div>
+      </article>
+      <article class="cart--card">
+        <div class="cart--box">
+          <img src="./assets/images/featured2.png" alt="Shirts" class="cart--imagen">
+        </div>
+
+        <div class="cart--details">
+          <h3 class="cart--titulo">Shirts</h3>
+          <span class="cart--stock">Stock: 13 | <span class="cart--precio">$24.00</span></span>
+          <span class="cart--subtotal">
+            Subtotal: $48.00
+          </span>
+
+          <div class="cart--monto">
+            <div class="cart--monto-contenido">
+              <span class="cart--monto-box minus" data-id="2">
+                <i class="bx bx-minus"></i>
+              </span>
+
+              <span class="cart--monto-number">2 units</span>
+
+              <span class="cart--monto-box plus" data-id="2">
+                <i class="bx bx-plus"></i>
+              </span>
+            </div>
+
+            <i class="bx bx-trash-alt cart--monto-basurero" data-id="2"></i>
+          </div>
+        </div>
+      </article>
     </div>
 
-    <main>
-      
-      <section id="products-list">
-       
-      </section>
-    </main>
+    <div class="cart--precios">
+      <span class="cart--precios-item"><span id="items-cont">4</span> items</span>
+      <span class="cart--precios-total" id="cart-total">$76.00</span>
+    </div>
 
-    <script src="./assets/js/main.js"></script>
-    <!--Diego Sisalima-->
-<<<<<<< HEAD
-    <!--Aldo Ochoa-->
-=======
-    
-    <!-- Cristian Quiceno -->
->>>>>>> ad136606045f67b31eb317b85e8baaad69418b6d
+    <div class="cart--checkout">
+      <button class="button cart--btn" id="cart-checkout"><i class="bx bxs-check-shield"></i> Checkout</button>
+    </div>
+
+  </div>
+
+  <!------------------------------------------------------------
+------------ HOME -------------------------------------
+--------------------------------------------------------------->
+  <main class="main">
+    <section class="home" id="home">
+      <div class="home--contenedor container grid">
+        <div class="home--imagen-bg">
+          <img src="./assets/images/home.png" alt="" class="home--imagen">
+        </div>
+
+        <div class="home__data">
+          <h1 class="home--titulo">New Sweatshirt <br> COLLECTIONS 2022</h1>
+          <p class="home--descrip">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. At, ipsam, libero perspiciatis quidem reprehenderit
+            quam repellendus quae nemo sed facilis hic dolor incidunt recusandae laboriosam! Minus a atque qui optio.
+          </p>
+          <span class="home--precio">$14.00</span>
+
+          <div class="home--botones">
+            <a href="#" class="button gris--btn small-btn">
+              Discover
+            </a>
+            <button class="button home--btn">ADD TO CART</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!--------------------------------------------------------------
+------------ PRODUCTOS -------------------------------------
+----------------------------------------------------------------->
+    <section class="productos" id="productos">
+      <div class="productos--container container">
+        <ul class="productos--filtro">
+          <li class="productos--item">
+            <h3 class="productos--titulo">
+              ✔ PRODUCTOS ✔
+            </h3>
+          </li>
+        </ul>
+
+        <div class="productos--contenido grid" id="productos--contenido">
+          <article class="productos--card hoodies">
+            <div class="productos--shape">
+              <img src="./assets/images/featured1.png" alt="Hoodies" class="productos--img">
+            </div>
+
+            <div class="productos--data">
+              <h2 class="productos--price">$14.00 <span class="productos--quantity">| Stock: 6</span></h2>
+              <h3 class="productos--name">Hoodies</h3>
+
+              <button class="button productos--button" data-id="1">
+                <i class="bx bx-plus"></i>
+              </button>
+            </div>
+          </article>
+          <article class="productos--card shirts">
+            <div class="productos--shape">
+              <img src="./assets/images/featured2.png" alt="Shirts" class="productos--img">
+            </div>
+
+            <div class="productos--data">
+              <h2 class="productos--precio">$24.00 <span class="productos--quantity">| Stock: 13</span></h2>
+              <h3 class="productos--name">Shirts</h3>
+
+              <button class="button productos--button" data-id="2">
+                <i class="bx bx-plus"></i>
+              </button>
+            </div>
+          </article>
+          <article class="productos--card sweatshirts">
+            <div class="productos--shape">
+              <img src="./assets/images/featured3.png" alt="Sweatshirts" class="productos--img">
+            </div>
+
+            <div class="productos--data">
+              <h2 class="productos--price">$24.00 <span class="productos--quantity">| Stock: 17</span></h2>
+              <h3 class="productos--name">Sweatshirts</h3>
+
+              <button class="button productos--button" data-id="3">
+                <i class="bx bx-plus"></i>
+              </button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!--------------------------------------------------------------
+------------ FOOTER-------------------------------------
+----------------------------------------------------------------->
+  <footer class="footer section">
+    <div class="footer--contenedor container grid">
+      <div class="footer--content">
+        <h3 class="footer--titulo">Our information</h3>
+
+        <ul class="footer--lista">
+          <li>Toluca - México</li>
+        </ul>
+      </div>
+      <div class="footer--content">
+        <h3 class="footer--titulo">About Us</h3>
+
+        <ul class="footer--links">
+          <li>
+            <a href="#" class="footer--link">Support Center</a>
+          </li>
+          <li>
+            <a href="#" class="footer--link">Customer Support</a>
+          </li>
+          <li>
+            <a href="#" class="footer--link">About Us</a>
+          </li>
+          <li>
+            <a href="#" class="footer--link">Copy Right</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer--content">
+        <h3 class="footer--titulo">Product</h3>
+
+        <ul class="footer--links">
+          <li>
+            <a href="#" class="footer--link">Hoodies</a>
+          </li>
+          <li>
+            <a href="#" class="footer--link">Shirts</a>
+          </li>
+          <li>
+            <a href="#" class="footer--link">Sweatshirts</a>
+          </li>
+        </ul>
+      </div>
+
+      <div class="footer--content">
+        <h3 class="footer--titulo">Social</h3>
+
+        <ul class="footer--social">
+          <a href="https://www.facebook.com/" target="_blank" class="footer--icon--social">
+            <i class="bx bxl-facebook"></i>
+          </a>
+
+          <a href="https://twitter.com/" target="_blank" class="footer--icon--social">
+            <i class="bx bxl-twitter"></i>
+          </a>
+
+          <a href="https://www.instagram.com/" target="_blank" class="footer--icon--social">
+            <i class="bx bxl-instagram"></i>
+          </a>
+        </ul>
+      </div>
+    </div>
+    <hr>
+    <span class="footer--copyrigth">© ACADEMLO. All rigths reserved</span>
+  </footer>
+  <!---------------- SCROLL ARRIBA -------------------->
+  <a href="#" class="scroll-up" id="scroll-up">
+    <i class="bx bx-up-arrow-alt scroll-up-icon"></i>
+  </a>
+  <script src="./assets/js/main.js" type="module"></script>
 </body>
+
 </html>
