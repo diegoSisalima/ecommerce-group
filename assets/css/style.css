@@ -114,7 +114,7 @@ button {
   letter-spacing: 2px;
   text-align: center;
   
-}​
+}
 .section__title::before {
   content: '';
   position: absolute;
@@ -217,6 +217,9 @@ body.tema-oscuro {
   fill: var(--first-color);
   width: 100px;
   animation: scroll 1.5s infinite;
+}
+.hide{
+  display: none;
 }
 
 @keyframes scroll {
