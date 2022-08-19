@@ -1,3 +1,6 @@
+import { addProductCarrito } from './addProductCarrito.js'
+import { items } from '../data/db.js'
+
 export function showProducts(products) {//va a recibir el arreglo de los productos
     //va a generar html por cada producto existente
     let contenedor = document.querySelector("#productos--contenido");
@@ -18,6 +21,7 @@ export function showProducts(products) {//va a recibir el arreglo de los product
         ` 
     } )
     contenedor.innerHTML = fragment;
+    addProductCarrito(items);
 }
 
  /*
