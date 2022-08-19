@@ -1,31 +1,56 @@
-export function addProductCarrito(items) {
-  const contadorCarrito = document.querySelector("#cart-cont")
-    const btns = document.querySelectorAll(".productos--button")//devuelve un node list (arreglo con todos los botones)
-   
-    
-    
-    
-    /*const cart = [];
-    let contenedor = document.querySelector("#cart-id");
-    let fragment = ``
-    */
-   let contador=0;
-    btns.forEach((button) => {
-        button.addEventListener("click", e => {
-            const id = parseInt(e.target.parentElement.id);//almaceno el id
-            const selectedProduct = items.find(item => item.id === id); //busco el producto selcionado con el id
-            //cart.push(selectedProduct); //añadimos al arreglo carrito          
-            contador = contador + 1;
-            selectedProduct.quantity = selectedProduct.quantity - 1;
-            contadorCarrito.textContent = contador;  
-            //console.log(contadorCarrito);
-            //console.log(contador);        
+import { showProducts } from "./showProducts.js";
+import { showItemsCarrito } from "./showItemsCarrito.js";
 
-            let cartTotal = document.querySelector("#items-cont");
-            cartTotal.textContent = contador;
-        })
+let contador = 0;
+export const cart = [];
+
+export function addProductCarrito(items) {
+  /*--- UBICACIONES EN EL DOM --- */
+  /*--- contador del carrito*/
+  const contadorCarrito = document.querySelector("#cart-cont")
+  /*--- botones de agregar al carrito de  cada producto */
+  const btns = document.querySelectorAll(".productos--button")//devuelve un node list (arreglo con todos los botones)
+  /*--- Stock de cada producto */
+  const stock = document.querySelector(".productos--quantity");
+  /*--- total de items dentro del carrito */
+  let itemsTotal = document.querySelector("#items-cont");
+  /*--- total a pagar ---*/
+  let cartTotal = document.getElementById("cart-total");
+
+  btns.forEach((button) => {
+    button.addEventListener("click", e => {
+
+      const id = parseInt(e.target.parentElement.id);//almaceno el id
+      const selectedProduct = items.find(item => item.id === id); //busco el producto selcionado con el id
+      contador = contador + 1;//incremento el contador
+      contadorCarrito.textContent = contador;//muestro el contador en el icono del carrito
+      itemsTotal.textContent = contador; //muestro el total dentro de la card del carrito
+      items[id - 1].quantity--;//actulizo la cantidad del producto segun su id
+      showProducts(items);
+
+
+      /*Ubicación del producto en elarreglo */
+      let index = cart.indexOf(selectedProduct);
+      if (index === -1) {
+        selectedProduct.seleccionado = 1;
+        cart.push(selectedProduct);
+
+      } else {
+        cart[index].seleccionado++;
+        cart[index].quantity--;
+        console.log(typeof (cart[index].quantity--));
+        console.log(cart[index]);
+      }
+      console.log(cart);
+      showItemsCarrito();
+
+      const totalPago = cart.reduce((total, product) => {
+        return (total + (product.seleccionado * product.price));
+      }, 0);
+      cartTotal.textContent = `$${totalPago}`;
+
     })
-    //console.log(cart);
+  })
 };
 
 /*
