@@ -1,5 +1,6 @@
 import { cart } from "./addProductCarrito.js";
 export function showItemsCarrito(){
+  let btnCheckout = document.getElementById("cart-checkout");
     let contenedor = document.querySelector(".cart--contenedor");
     let fragment = ``;
     if(cart.length === 0){
@@ -9,9 +10,11 @@ export function showItemsCarrito(){
             <h2>Your cart is empty</h2>
           </div>
         `;
+        btnCheckout.disabled = true;
     }
     else{
         cart.map((productoCarr)=>{
+          btnCheckout.disabled = false;
             fragment += `
             <article class="cart--card">
             <div class="cart--box">
@@ -44,10 +47,20 @@ export function showItemsCarrito(){
           </article>
             `;
         });
-        
-        alert(cart);
     }
     
-    contenedor.innerHTML=(fragment);
 
+    btnCheckout.addEventListener("click", e=>{
+      let fragment2
+      fragment2 = `
+      <div class="cart__empty">
+          <img src="./assets/images/empty-cart.png" alt="empty cart">
+          <h2>Your cart is empty</h2>
+        </div>
+      `;
+      btnCheckout.disabled = true;
+      contenedor.innerHTML=(fragment2);
+    })
+
+    contenedor.innerHTML=(fragment);
 }
